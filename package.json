@@ -1,0 +1,49 @@
+{
+  "name": "movieapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./webpack.pro.config.js --mode production ",
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js --hot --inline "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeyan1996/movieApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeyan1996/movieApp/issues"
+  },
+  "homepage": "https://github.com/yeyan1996/movieApp#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.6.3",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "eslint": "^5.0.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.2",
+    "postcss-loader": "^2.1.5",
+    "sass-loader": "^7.0.3",
+    "standard": "^11.0.1",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "vue-loader": "^15.2.4",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  },
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
+  }
+}
