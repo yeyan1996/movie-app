@@ -38,6 +38,11 @@ module.exports = {
                     limit: 10000,
                     name: 'img/[name].[hash:7].[ext]'
                 }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
             }
 
         ]

@@ -3,8 +3,7 @@
     <div>
 <homeSwiper></homeSwiper>
 <homeMovie></homeMovie>
-
-        <commingSoonMovie></commingSoonMovie>
+<commingSoonMovie></commingSoonMovie>
     </div>
 </template>
 

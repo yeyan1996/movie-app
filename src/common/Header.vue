@@ -2,26 +2,34 @@
   <header>
       <div class="container">
           <div class="iconContainer">
-              <a  class="iconfont icon-unorderedlist"></a>
+              <a  class="iconfont icon-unorderedlist" @click="handleChange"></a>
           </div>
 
           <p>卖座电影</p>
 
-
-          <p style="margin-left: 4.5rem">广州</p>
+          <p style="margin-left: 4.5rem">{{this.city}}</p>
           <a class="iconfont icon-down " ></a>
           <div class="iconContainer" >
           <a class="iconfont icon-user right"></a>
           </div>
-
 
       </div>
   </header>
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
 export default {
-    name: 'Header'
+    name: 'Header',
+    computed: {
+        ...mapState(['city'])
+    },
+    methods: {
+        handleChange () {
+            this.showLeftNavbar()
+        },
+        ...mapMutations(['showLeftNavbar'])
+    }
 }
 </script>
 
