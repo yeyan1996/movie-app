@@ -11,7 +11,19 @@ module.exports = merge(webpackBaseConfig, {
         overlay: true,
         historyApiFallback: true,
         hot: true,
-        inline: true
+        inline: true,
+        proxy: {
+            '/api': {
+                target: 'https://m.maizuo.com',
+                pathRewrite: {
+                    '^/api': ''
+                },
+                changeOrigin: true,
+                secure: false
+
+            }
+        }
+
     },
     module: {
         rules: [

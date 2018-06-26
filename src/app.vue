@@ -1,6 +1,8 @@
 <template>
     <div>
  <Header></Header>
+        <div style="margin-bottom: 1.5rem"></div>
+   <router-view/>
     </div>
 </template>
 

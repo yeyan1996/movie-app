@@ -1,37 +1,27 @@
 <!--suppress ALL -->
 <template>
-    <commonSwiper :list="this.list" :swiperOption="swiperOption"></commonSwiper>
+    <div>
+<homeSwiper></homeSwiper>
+<homeMovie></homeMovie>
 
+        <commingSoonMovie></commingSoonMovie>
+    </div>
 </template>
 
 <script>
-import commonSwiper from 'common/commonSwiper'
+import homeMovie from 'pages/home/components/homeMovie'
+import homeSwiper from 'pages/home/components/homeSwiper'
+import commingSoonMovie from 'pages/home/components/commingSoonMovie'
 export default {
     name: 'home',
-    data () {
-        return {
-            list: [
-                {
-                    imgUrl: 'https://pic.maizuo.com/h5PicUpload/062a965ab71db31fe0b7ad6f8c529935.jpg',
-                     id: '0001'
-                }
-            ],
-          swiperOption:{
-            loop:true,
-            autoplay:true,
-            pagination: {
-              el: '.swiper-pagination'
-            }
-          }
-
-        }
-    },
-    components: {
-        commonSwiper
-    }
+  components:{
+      homeSwiper,
+      homeMovie,
+    commingSoonMovie
+  }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

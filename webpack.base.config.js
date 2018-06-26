@@ -30,6 +30,14 @@ module.exports = {
                 }
                 ]
 
+            },
+            {
+                test: /\.(png|jpe?g|gif)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'img/[name].[hash:7].[ext]'
+                }
             }
 
         ]
@@ -38,7 +46,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json', '.scss'],
         alias: {
             '@': path.resolve(__dirname, 'src/'),
-            'components': path.resolve(__dirname, 'src/components/'),
+            'pages': path.resolve(__dirname, 'src/pages/'),
             'common': path.resolve(__dirname, 'src/common/')
         }
     },
