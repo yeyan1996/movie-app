@@ -2,7 +2,9 @@
     <div>
  <Header></Header>
         <div style="margin-bottom: 1.5rem"></div>
+
         <leftNavbar></leftNavbar>
+
    <router-view/>
     </div>
 </template>
@@ -14,11 +16,11 @@ export default {
     name: 'app',
     components: {
         Header,
-      leftNavbar
+        leftNavbar
     }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

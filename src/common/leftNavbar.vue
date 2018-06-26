@@ -1,6 +1,8 @@
 <template>
+    <transition>
     <nav class="opacity" v-show="this.leftNavbarShow">
-        <div class="container">
+        <transition name="fade">
+        <div class="container" v-show="this.leftNavbarShow">
          <a>
              <span>首页</span>
              <i class="iconfont icon-right"></i>
@@ -12,7 +14,9 @@
             </a>
 
         </div>
+        </transition>
     </nav>
+    </transition>
 </template>
 
 <script>
@@ -26,6 +30,44 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
+    .v-enter-to{
+        background:rgba(0,0,0,.5);
+    }
+    .v-enter{
+        background:rgba(0,0,0,0) !important;
+    }
+  .v-leave-to{
+      background:rgba(0,0,0,0) !important;
+  }
+  .v-leave{
+      background:rgba(0,0,0,.5);
+  }
+    .v-enter-active,.v-leave-active{
+        transition:all 1s
+    }
+   .fade-enter{
+       opacity: 0;
+       transform-origin: left center;
+       transform: translate3d(-100%, 0, 0);
+   }
+   .fade-enter-to{
+       opacity: 1;
+       transform-origin: left center;
+       transform: translate3d(0, 0, 0);
+   }
+   .fade-enter-active,.fade-leave-active{
+       transition:all 1s;
+   }
+   .fade-leave{
+       opacity: 1;
+       transform-origin: left center;
+       transform: translate3d(0, 0, 0);
+   }
+   .fade-leave-to{
+       opacity: 0;
+       transform-origin: left center;
+       transform: translate3d(-100%, 0, 0);
+   }
   .opacity {
       width:100%;
       height:100%;
