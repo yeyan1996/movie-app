@@ -2,9 +2,7 @@
     <div>
  <Header></Header>
         <div style="margin-bottom: 1.5rem"></div>
-
         <leftNavbar></leftNavbar>
-
    <router-view/>
     </div>
 </template>

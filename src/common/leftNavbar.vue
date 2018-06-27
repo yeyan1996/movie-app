@@ -1,12 +1,12 @@
 <template>
     <transition>
-    <nav class="opacity" v-show="this.leftNavbarShow">
+    <nav class="opacity" v-show="this.leftNavbarShow" @click="handleChange">
         <transition name="fade">
-        <div class="container" v-show="this.leftNavbarShow">
-         <a>
+        <div class="container" v-show="this.leftNavbarShow" >
+         <router-link :to="{path:'/'}" @click="handleChange">
              <span>首页</span>
              <i class="iconfont icon-right"></i>
-         </a>
+         </router-link>
 
             <a>
                 <span>影片</span>
@@ -20,11 +20,17 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 export default {
     name: 'leftNavbar',
     computed: {
         ...mapState(['leftNavbarShow'])
+    },
+    methods: {
+        handleChange () {
+            this.showLeftNavbar()
+        },
+        ...mapMutations(['showLeftNavbar'])
     }
 }
 </script>
@@ -56,7 +62,7 @@ export default {
        transform: translate3d(0, 0, 0);
    }
    .fade-enter-active,.fade-leave-active{
-       transition:all 1s;
+       transition:all .6s ease-out;
    }
    .fade-leave{
        opacity: 1;

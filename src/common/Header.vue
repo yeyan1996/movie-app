@@ -8,7 +8,9 @@
           <p>卖座电影</p>
 
           <p style="margin-left: 4.5rem">{{this.city}}</p>
+          <router-link :to="{name:'city'}">
           <a class="iconfont icon-down " ></a>
+          </router-link>
           <div class="iconContainer" >
           <a class="iconfont icon-user right"></a>
           </div>

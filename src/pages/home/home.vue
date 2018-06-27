@@ -16,7 +16,7 @@ export default {
   components:{
       homeSwiper,
       homeMovie,
-    commingSoonMovie
+      commingSoonMovie
   }
 }
 </script>
