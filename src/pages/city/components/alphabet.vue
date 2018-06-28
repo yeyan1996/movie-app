@@ -3,7 +3,7 @@
         <div class="container">
             <div class="title">按字母排序</div>
             <ul class="alphabet">
-          <li v-for="(item,index) in alphabetList" :key="index">{{item}}</li>
+          <li v-for="(item,key) in obj" :key="key">{{key}}</li>
             </ul>
         </div>
     </section>
@@ -13,8 +13,11 @@
 export default {
     name: 'alphabet',
     props: {
-        alphabetList: {type: Array}
-    }
+        obj: {type: Object}
+    },
+  mounted(){
+    console.log('aa')
+  }
 
 }
 </script>

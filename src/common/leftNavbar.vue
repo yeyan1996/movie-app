@@ -8,10 +8,10 @@
              <i class="iconfont icon-right"></i>
          </router-link>
 
-            <a>
+            <router-link :to="{path:'/movie'}">
                 <span>影片</span>
                 <i class="iconfont icon-right"></i>
-            </a>
+            </router-link>
 
         </div>
         </transition>

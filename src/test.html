@@ -9,6 +9,13 @@
 </body>
 </html>
 <script>
-    let a=['a','g','e','c']
-    console.log(a.sort())
+let pro = new Promise(function(resolve,reject){
+  if (true){
+    resolve('ok');
+  }
+  else{
+    reject('no');
+  }
+})
+    pro.then(res=>{console.log(res)}).catch(err=>{console.log(err)})
 </script>

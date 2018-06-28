@@ -1,9 +1,9 @@
 <template>
     <section>
-        <div class="container" v-for="(alphabet,index) in alphabetList" :key="index">
-            <div class="title">{{alphabet}}</div>
-            <ul class="list">
-                <li v-for="item in filterList" :key="item.id">{{item.name}}</li>
+        <div class="container" v-for="(item,key,index) in obj" :key="key">
+            <div class="title">{{key}}</div>
+            <ul class="list" >
+                <li v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</li>
             </ul>
         </div>
     </section>
@@ -13,16 +13,20 @@
 export default {
     name: 'list',
     props: {
-        cityList: {type: Array},
-        alphabetList: {type: Array},
-        q: {type: Array}
+        obj: {type: Object,required:true}
     },
-    data () {
-        return {
-            filterList: []
-
+    mounted () {
+        console.log(this)
+    },
+    watch: {
+        obj () {
+             console.log('abba')
         }
     }
+
+    // mounted(){
+    //   console.log(this)
+    // }
     // watch: {
     //     cityList () {
     //         this.filterList = this.cityList.filter(

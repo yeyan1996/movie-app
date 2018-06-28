@@ -3,8 +3,8 @@
     <div>
     <GPS></GPS>
     <hotCity></hotCity>
-    <alphabet :alphabetList="alphabetList"></alphabet>
-        <list :cityList="cityList" :alphabetList="alphabetList" q:="q"></list>
+    <alphabet :obj="obj"></alphabet>
+        <list  :obj="obj"></list>
     </div>
 </template>
 
@@ -20,7 +20,8 @@ export default {
         return {
             cityList: [],
           alphabetList: [],
-          q:[]
+          q:[],
+          obj:{}
         }
     },
     components: {
@@ -30,7 +31,7 @@ export default {
         list
     },
   methods:{
-      filterAlphabet(){
+      changeApi(){
         this.cityList.forEach(
           (item) => {
             let x = item.pinyin.slice(0, 1)
@@ -40,22 +41,29 @@ export default {
           }
         )
         this.alphabetList.sort()
-      },
-    aaa(){
-        // console.log(this.alphabetList)
-       for(let i of this.alphabetList){
-         let x=this.cityList.filter(
-           (item)=>{
-             return item.pinyin.slice(0,1)===i
-           }
-         )
-         // console.log(x)
-         this.q.push(x)
+
+
+
+        for(let i of this.alphabetList){
+          let x=this.cityList.filter(
+            (item)=>{
+              return item.pinyin.slice(0,1)===i
+            }
+          )
+          // console.log(x)
+          this.q.push(x)
 
           // console.log(i)
-       }
-      console.log(this.q)
-    }
+        }
+
+        for(let i in this.alphabetList) {
+          let key=this.alphabetList[i]
+          this.obj[key] = this.q[i]
+        }
+      },
+
+
+
   },
     mounted () {
         const vm = this
@@ -68,8 +76,8 @@ export default {
                         vm.cityList = res.data.data.cities
                         // vm.cityList.filter(function(item){return item.pinyin.slice(0,1)='A'})
                       // console.log(vm.cityList)
-                     vm.filterAlphabet()
-                      vm.aaa()
+                     vm.changeApi()
+
                     }
                 })
                 .catch(err => { console.log(err) })
@@ -79,7 +87,7 @@ export default {
 </script>
 
 <style scoped>
-/**{*/
-    /*background: white;*/
-/*}*/
+*{
+    background: white;
+}
 </style>
