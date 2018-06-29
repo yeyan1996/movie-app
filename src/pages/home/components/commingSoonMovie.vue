@@ -6,7 +6,7 @@
         </div>
         <homePanel v-for="item in commingSoonMovieList" :key="item.id" :item="item">
             <div >{{item.name}}</div>
-            <div></div>
+            <div class="orange">{{item.premiereAt|getDay}}上映</div>
         </homePanel>
         <div class="moreCommingSoonMovieIcon">更多即将上映电影</div>
     </section>
@@ -20,6 +20,17 @@ export default {
     data () {
         return {
             commingSoonMovieList: []
+        }
+    },
+    filters: {
+        getDay: function (time) {
+            let date = new Date(time)
+
+            let month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1)
+
+            let day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate()
+
+            return month + '月' + day + '日'
         }
     },
     components: {
@@ -68,5 +79,8 @@ export default {
         text-align: center;
         width:30%;
         border-radius:1rem;
+    }
+    .orange{
+   color:orange;
     }
 </style>

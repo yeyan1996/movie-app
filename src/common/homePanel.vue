@@ -18,7 +18,7 @@ export default {
             default: ''
         },
         item: {
-            type: [Array, Object]
+            type: Object
         }
     }
 }
