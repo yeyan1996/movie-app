@@ -6,6 +6,7 @@ import movie from '@/pages/movie/movie'
 import nowPlaying from '@/pages/movie/components/nowPlaying'
 import detail from '@/pages/home/detail'
 import movieCommingSoon from '@/pages/movie/components/movieCommingSoon'
+import cinema from '@/pages/cinema/cinema'
 Vue.use(Router)
 
 export default new Router({
@@ -42,6 +43,11 @@ export default new Router({
                     component: movieCommingSoon
                 }
             ]
+        },
+        {
+            path: '/cinema',
+            name: 'ciname',
+            component: cinema
         }
 
     ],

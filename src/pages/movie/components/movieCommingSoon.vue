@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li v-for="movie in movieList" :key="movie.id">
+        <router-link :to="{path:'/detail/'+movie.id}" tag="li" v-for="movie in movieList" :key="movie.id">
             <moviePanel :movie="movie">
                 <div class=info>
                     <p class="title">{{movie.name}}</p>
@@ -9,7 +9,7 @@
                     <p class="orange"> <span>{{movie.premiereAt|getDay}}上映</span> <span>{{movie.premiereAt|getTime}}</span></p>
                 </div>
             </moviePanel>
-        </li>
+        </router-link>
     </ul>
 </template>
 

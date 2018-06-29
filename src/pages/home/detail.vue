@@ -5,12 +5,12 @@
         </transition>
         <div class="movieIntro">影片简介</div>
         <div>导&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span>{{list.director}}</span></div>
-        <div>主&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span v-for="(item,index) in list.actors" :key="index">{{item.name}}</span></div>
+        <div>主&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span v-for="(item,index) in list.actors" :key="index" class="actors">{{item.name}}</span></div>
         <div>地区语言: <span>{{list.nation}}({{list.language}})</span></div>
         <div>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型: <span>{{list.category}}</span></div>
         <div>上映日期: <span>{{list.premiereAt|getDay}}上映</span></div>
         <div class="intro">{{list.synopsis}}</div>
-        <router-link :to="{name:'home'}" class="buyTicket" tag="button">
+        <router-link :to="{path:'/cinema'}" class="buyTicket" tag="button">
         立即购票
         </router-link>
     </section>
@@ -84,6 +84,12 @@ div{
         letter-spacing:.015rem;
         line-height:.6rem;
     }
+    span.actors{
+        letter-spacing:.015rem;
+        &:not(:last-child):after{
+            content: '|';
+        }
+    }
 }
 .buyTicket{
     position: fixed;
@@ -99,4 +105,5 @@ div{
     border-radius:1rem;
     background: orange;
 }
+
 </style>
