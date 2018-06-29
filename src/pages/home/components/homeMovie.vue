@@ -1,12 +1,14 @@
 <template>
     <section>
-        <homePanel v-for="item in homeMovieList" :key="item.id" :item="item">
+            <router-link :to="{path:'/detail/'+item.id}" tag="div" v-for="item in homeMovieList" :key="item.id" >
+                <homePanel :item="item">
         <div>
             <p class="bold">{{item.name}}</p>
             <p class="grey">{{item.cinemaCount}}家电影院上映  {{item.watchCount}}人购票</p>
         </div>
         <div class="orange">{{item.grade}}</div>
-        </homePanel>
+                </homePanel>
+            </router-link>
         <div class="moreHotMovieIcon">更多热映电影</div>
     </section>
 </template>

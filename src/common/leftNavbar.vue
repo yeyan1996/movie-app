@@ -8,7 +8,7 @@
              <i class="iconfont icon-right"></i>
          </router-link>
 
-            <router-link :to="{path:'/movie'}">
+            <router-link :to="{path:'/movie/nowPlaying'}">
                 <span>影片</span>
                 <i class="iconfont icon-right"></i>
             </router-link>

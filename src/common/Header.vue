@@ -1,20 +1,24 @@
 <template>
   <header>
       <div class="container">
-          <div class="iconContainer">
+          <div class="iconContainer ">
               <a  class="iconfont icon-unorderedlist" @click="handleChange"></a>
           </div>
 
-          <p>卖座电影</p>
-
-          <p style="margin-left: 4.5rem">{{this.city}}</p>
-          <router-link :to="{name:'city'}">
+           <div class="hotMovie">
+          <p >卖座电影</p>
+           </div>
+          <div class="right">
+          <router-link :to="{name:'city'}" tag="div" class="city">
+          <p >{{this.city}}</p>
           <a class="iconfont icon-down " ></a>
           </router-link>
+
           <div class="iconContainer" >
-          <a class="iconfont icon-user right"></a>
+          <a class="iconfont icon-user "></a>
           </div>
 
+          </div>
       </div>
   </header>
 </template>
@@ -36,7 +40,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .container{
     top:0;
     position: fixed;
@@ -46,32 +49,43 @@ export default {
     background: black;
     display: flex;
     align-items: center;
-
+    .city{
+        height:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .hotMovie{
+        height:100%;
+        display: flex;
+        align-items: center;
+    }
     p{
         margin-left:.2rem;
         color:white;
     }
     a{
+        font-size:.5rem;
         color:white;
     }
+
     .iconContainer{
-       width:12%;
+       width:1.5rem;
       height:100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        &:nth-child(1){
-           &:after{
-               content:'';
-               height:100%;
-                margin-left:.15rem;
-               border-left:1px solid #404040;
-
-           }
+        &:first-child {
+            border-right: 1px solid #353535;
         }
-    }
+        }
+
     .right{
-       float:right;
+      display: flex;
+     height:100%;
+     position: absolute;
+        right:0;
     }
+
 }
 </style>

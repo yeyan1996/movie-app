@@ -31,6 +31,18 @@ export default {
         list
     },
   methods:{
+      getInfo(){
+        axios.get('/api/v4/api/city?__t=1530066943888')
+          .then(res => {
+            if (res.status === 200 && res.data.msg === 'ok') {
+              this.cityList = res.data.data.cities
+              // console.log(vm.cityList)
+              this.changeApi()
+
+            }
+          })
+          .catch(err => { console.log(err) })
+      },
       changeApi(){
         this.cityList.forEach(
           (item) => {
@@ -60,29 +72,18 @@ export default {
           let key=this.alphabetList[i]
           this.obj[key] = this.q[i]
         }
-      },
-
-
+      }
 
   },
     mounted () {
-        const vm = this
+        // const vm = this
+      this.getInfo()
     },
-    beforeRouteEnter (to, from, next) {
-        next(vm => {
-            axios.get('/api/v4/api/city?__t=1530066943888')
-                .then(res => {
-                    if (res.status === 200 && res.data.msg === 'ok') {
-                        vm.cityList = res.data.data.cities
-                        // vm.cityList.filter(function(item){return item.pinyin.slice(0,1)='A'})
-                      // console.log(vm.cityList)
-                     vm.changeApi()
-
-                    }
-                })
-                .catch(err => { console.log(err) })
-        })
-    }
+    // beforeRouteEnter (to, from, next) {
+    //     next(vm => {
+    //
+    //     })
+    // }
 }
 </script>
 

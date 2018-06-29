@@ -4,6 +4,7 @@ import home from '@/pages/home/home'
 import city from '@/pages/city/city'
 import movie from '@/pages/movie/movie'
 import nowPlaying from '@/pages/movie/components/nowPlaying'
+import detail from '@/pages/home/detail'
 Vue.use(Router)
 
 export default new Router({
@@ -17,6 +18,12 @@ export default new Router({
             path: '/city',
             name: 'city',
             component: city
+        },
+        {
+            path: '/detail/:id',
+            props: true,
+            component: detail
+
         },
         {
             path: '/movie',

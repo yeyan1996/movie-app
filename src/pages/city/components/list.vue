@@ -13,14 +13,14 @@
 export default {
     name: 'list',
     props: {
-        obj: {type: Object,required:true}
+        obj: {type: Object, required: true}
     },
     mounted () {
         console.log(this)
     },
     watch: {
         obj () {
-             console.log('abbdda')
+            console.log('abbddaaa')
         }
     }
 
