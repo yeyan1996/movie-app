@@ -20,7 +20,7 @@ export default {
     },
     watch: {
         obj () {
-             console.log('abba')
+             console.log('abbdda')
         }
     }
 

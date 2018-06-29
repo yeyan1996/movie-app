@@ -30,7 +30,7 @@ export default {
             .then(res => {
                 if (res.status === 200 && res.data.msg === 'ok') {
                     this.commingSoonMovieList = res.data.data.films
-                    // console.log(this.commingSoonMovieList)
+                    console.log(this.commingSoonMovieList)
                 }
             })
             .catch(err => { console.log(err) })

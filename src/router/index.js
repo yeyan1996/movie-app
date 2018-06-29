@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '@/pages/home/home'
 import city from '@/pages/city/city'
 import movie from '@/pages/movie/movie'
+import nowPlaying from '@/pages/movie/components/nowPlaying'
 Vue.use(Router)
 
 export default new Router({
@@ -20,7 +21,14 @@ export default new Router({
         {
             path: '/movie',
             name: 'movie',
-            component: movie
+            component: movie,
+            children: [
+                {
+                    path: 'nowPlaying',
+                    name: 'nowPlaying',
+                    component: nowPlaying
+                }
+            ]
         }
 
     ],

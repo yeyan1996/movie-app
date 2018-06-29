@@ -1,19 +1,21 @@
 <template>
     <div class="container">
-        <img src="https://pic.maizuo.com/usr/movie/0dc8b7161fd3b07b0561bdef70e2c398.jpg?x-oss-process=image/resize,m_fixed,h_0,w_300" alt="">
+        <div class="imgContainer">  <img :src="movie.poster.origin" alt=""></div>
         <div class=info>
-         <p class="title">生孩越狱</p>
-        <p class="orange">8.3 <i class="iconfont icon-right icon"></i></p>
-        <p class="intro"></p>
-        <p>1家影院上映</p>
-        <p>123123人购票</p>
+         <p class="title">{{movie.name}}</p>
+        <p class="orange">{{movie.grade}} <i class="iconfont icon-right icon"></i></p>
+        <p class="intro">{{movie.intro}}</p>
+        <p><span>{{movie.cinemaCount}}家影院上映</span><span style="margin-left: .8rem;">{{movie.watchCount}}人购票</span></p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'moviePanel'
+    name: 'moviePanel',
+    props: {
+        movie: {type: Object}
+    }
 }
 </script>
 
@@ -22,26 +24,38 @@ export default {
     height:3.875rem;
     display: flex;
     align-items: center;
-    img{
+    border-bottom: 0.05rem dotted #c8c8c8;
+    .imgContainer{
         height:2.58rem;
         width:1.875rem;
+        img{
+            width:100%;
+            height:100%;
+        }
     }
     .info {
         flex:1;
+        height:2.58rem;
+        margin-left:.4rem;
         .title {
             color: black;
             font-size: .5rem;
+            line-height:.5rem;;
             font-weight: bold
         }
         > p.orange {
             color: orange;
+            float:right;
+            font-size:.5rem;
             .icon {
                 color: #e5e5e5
             }
         }
         > p {
+            line-height: .75rem;
             font-size: .375rem;
-            color: #8aa2bf
+            color: #8aa2bf;
+            height:.75rem;
         }
     }
 }

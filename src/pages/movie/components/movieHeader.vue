@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="container">
-            <a>正在热映</a>
+            <router-link :to="{path:'/movie/nowPlaying'}">正在热映</router-link>
             <a>即将上映</a>
         </div>
     </section>
