@@ -4,10 +4,12 @@
             <div class="commingIcon">即将上映</div>
             <div class="border"></div>
         </div>
-        <homePanel v-for="item in commingSoonMovieList" :key="item.id" :item="item">
+        <router-link  :to="{path:'/detail/'+item.id}" tag="div" v-for="item in commingSoonMovieList" :key="item.id" >
+        <homePanel :item="item">
             <div >{{item.name}}</div>
             <div class="orange">{{item.premiereAt|getDay}}上映</div>
         </homePanel>
+        </router-link>
         <div class="moreCommingSoonMovieIcon">更多即将上映电影</div>
     </section>
 </template>
@@ -41,7 +43,7 @@ export default {
             .then(res => {
                 if (res.status === 200 && res.data.msg === 'ok') {
                     this.commingSoonMovieList = res.data.data.films
-                    console.log(this.commingSoonMovieList)
+                    // console.log(this.commingSoonMovieList)
                 }
             })
             .catch(err => { console.log(err) })

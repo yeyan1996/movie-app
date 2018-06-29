@@ -38,7 +38,6 @@ export default {
               this.cityList = res.data.data.cities
               // console.log(vm.cityList)
               this.changeApi()
-
             }
           })
           .catch(err => { console.log(err) })
