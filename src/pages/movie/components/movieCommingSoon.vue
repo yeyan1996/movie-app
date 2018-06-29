@@ -6,7 +6,7 @@
                     <p class="title">{{movie.name}}</p>
                 <i class="iconfont icon-right icon"></i>
                     <p class="intro">{{movie.intro}}</p>
-                    <p> <span>{{movie.premiereAt|getDay}}上映</span> <span>{{movie.premiereAt|getTime}}</span></p>
+                    <p class="orange"> <span>{{movie.premiereAt|getDay}}上映</span> <span>{{movie.premiereAt|getTime}}</span></p>
                 </div>
             </moviePanel>
         </li>
@@ -87,6 +87,9 @@ export default {
             font-size: .375rem;
             color: #8e8e8e;
             height:.75rem;
+        }
+        .orange{
+            color:orange;
         }
     }
 </style>
