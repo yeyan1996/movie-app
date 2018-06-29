@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 *{
-    background: white;
+    background: #f1f1f1;
     padding:.2rem;
 }
 </style>

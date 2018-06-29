@@ -1,7 +1,9 @@
 <template>
     <section :class="custom">
         <div class="container" >
+            <transition appear appear-active-class="animated fadeIn">
             <img :src="item.cover.origin" alt="">
+            </transition>
             <div class="textContainer">
                 <slot></slot>
             </div>
@@ -25,6 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
     .container {
         display: flex;
         height: 6.375rem;

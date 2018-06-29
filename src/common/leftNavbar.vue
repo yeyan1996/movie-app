@@ -62,7 +62,7 @@ export default {
        transform: translate3d(0, 0, 0);
    }
    .fade-enter-active,.fade-leave-active{
-       transition:all .6s ease-out;
+       transition:all .3s ease-out;
    }
    .fade-leave{
        opacity: 1;

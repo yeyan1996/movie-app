@@ -2,7 +2,7 @@
     <section>
         <div class="container">
             <router-link :to="{path:'/movie/nowPlaying'}">正在热映</router-link>
-            <a>即将上映</a>
+            <router-link :to="{path:'/movie/movieCommingSoon'}">即将上映</router-link>
         </div>
     </section>
 </template>
@@ -17,7 +17,6 @@
 .container{
     display: flex;
     text-align: center;
-
     height:1.2rem;
 
     >a{
@@ -27,10 +26,10 @@
         height:100%;
         width:50%;
         border-bottom:.05rem solid orange;
-        &:hover{
-           color:orange;
-            border-bottom: .1rem solid orange;
-        }
     }
+}
+.router-link-active{
+    color:orange !important;
+    border-bottom: .12rem solid orange !important;
 }
 </style>

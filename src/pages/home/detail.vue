@@ -1,6 +1,8 @@
 <template>
     <section>
+        <transition appear appear-active-class="animated fadeIn">
         <img :src="this.list.cover.origin" alt="">
+        </transition>
         <div class="movieIntro">影片简介</div>
         <div>导&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span>{{list.director}}</span></div>
         <div>主&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span v-for="(item,index) in list.actors" :key="index">{{item.name}}</span></div>
@@ -8,7 +10,7 @@
         <div>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型: <span>{{list.category}}</span></div>
         <div>上映日期: <span>{{list.premiereAt|getDay}}上映</span></div>
         <div class="intro">{{list.synopsis}}</div>
-        <router-link :to="{name:'home'}" class="buyTicket" tag="buttom">
+        <router-link :to="{name:'home'}" class="buyTicket" tag="button">
         立即购票
         </router-link>
     </section>

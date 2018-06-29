@@ -5,6 +5,7 @@ import city from '@/pages/city/city'
 import movie from '@/pages/movie/movie'
 import nowPlaying from '@/pages/movie/components/nowPlaying'
 import detail from '@/pages/home/detail'
+import movieCommingSoon from '@/pages/movie/components/movieCommingSoon'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +35,11 @@ export default new Router({
                     path: 'nowPlaying',
                     name: 'nowPlaying',
                     component: nowPlaying
+                },
+                {
+                    path: 'movieCommingSoon',
+                    name: 'movieCommingSoon',
+                    component: movieCommingSoon
                 }
             ]
         }
