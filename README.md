@@ -33,6 +33,10 @@
 
 >项目参考：https://github.com/ChuckCZC/vue-demo-maizuo
 
+# 演示图片
+
+![演示图片](https://github.com/yeyan1996/movieApp/tree/master/static/demo.png)
+
 
 # 项目运行
 > 运行前请先去官网安装nodejs
