@@ -7,8 +7,8 @@ export default {
     showLeftNavbar (state) {
         state.leftNavbarShow = !state.leftNavbarShow
     },
-    changeTitleName (state) {
-        state.title = '卖座电影'
+    changeTitleName (state,payload) {
+        state.title = payload.title
     },
 
     getCityInfo (state, payload) {

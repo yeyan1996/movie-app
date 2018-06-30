@@ -59,7 +59,7 @@ export default {
     this.updateLoadingStatus({isLoading: false})
     },
     beforeDestroy () {
-        this.changeTitleName()
+        this.changeTitleName({title:'卖座电影'})
     }
 
 }
