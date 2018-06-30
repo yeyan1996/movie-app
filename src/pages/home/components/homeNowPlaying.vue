@@ -1,6 +1,6 @@
 <template>
     <section>
-            <router-link :to="{path:'/detail/'+item.id}" tag="div" v-for="item in homeMovieList" :key="item.id" >
+            <router-link :to="{path:'/detail/'+item.id}" tag="div" v-for="item in homeNowPlayingList" :key="item.id" >
                 <homePanel :item="item">
         <div>
             <p class="bold">{{item.name}}</p>
@@ -14,8 +14,8 @@
 </template>
 
 <script>
+import {mapMutations, mapState} from 'vuex'
 import homePanel from 'common/homePanel'
-import axios from 'axios'
 export default {
     name: 'homeMovie',
     components: {
@@ -23,23 +23,16 @@ export default {
     },
     data () {
         return {
-            homeMovieList: []
         }
     },
     methods: {
-        getInfo () {
-            axios.get('api/v4/api/film/now-playing?__t=1529935023908&page=1&count=5')
-                .then(res => {
-                    if (res.status === 200 && res.data.msg) {
-                        this.homeMovieList = res.data.data.films
-                        // console.log(this.homeMovieList)
-                    }
-                })
-                .catch(err => { console.log(err) })
-        }
+        ...mapMutations(['homeNowPlayingGetInfo'])
+    },
+    computed: {
+        ...mapState(['homeNowPlayingList'])
     },
     mounted () {
-        this.getInfo()
+        this.homeNowPlayingGetInfo()
     }
 }
 </script>

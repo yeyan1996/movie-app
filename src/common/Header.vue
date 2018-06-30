@@ -6,7 +6,7 @@
           </div>
 
            <div class="hotMovie">
-          <p >卖座电影</p>
+          <p >{{this.title}}</p>
            </div>
           <div class="right">
           <router-link :to="{name:'city'}" tag="div" class="city">
@@ -28,7 +28,7 @@ import {mapState, mapMutations} from 'vuex'
 export default {
     name: 'Header',
     computed: {
-        ...mapState(['city'])
+        ...mapState(['city', 'title'])
     },
     methods: {
         handleChange () {

@@ -10,7 +10,7 @@ import movieHeader from 'pages/movie/components/movieHeader'
 export default {
     name: 'movie',
     components: {
-        movieHeader,
+        movieHeader
     }
 }
 </script>

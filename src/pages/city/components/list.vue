@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="container" v-for="(item,key,index) in obj" :key="key">
+        <div class="container" v-for="(item,key) in x" :key="key">
             <div class="title">{{key}}</div>
             <ul class="list" >
                 <li v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</li>
@@ -12,32 +12,20 @@
 <script>
 export default {
     name: 'list',
-    props: {
-        obj: {type: Object, required: true}
-    },
-    mounted () {
-        console.log(this)
+    props: ['obj'],
+    data () {
+        return {
+            x: {}
+        }
     },
     watch: {
-        obj () {
-            console.log('abbddaaa')
+        obj (curVal, oldVal) {
+            console.log('d')
+        },
+        x () {
+            console.log('x')
         }
     }
-
-    // mounted(){
-    //   console.log(this)
-    // }
-    // watch: {
-    //     cityList () {
-    //         this.filterList = this.cityList.filter(
-    //             (item) => {
-    //                 return item.pinyin.slice(0, 1) === 'A'
-    //             }
-    //         )
-    //         // console.log(this.filterList)
-    //     }
-    //
-    // }
 }
 </script>
 

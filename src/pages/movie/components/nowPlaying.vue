@@ -1,6 +1,6 @@
 <template>
    <ul>
-       <router-link :to="{path:'/detail/'+movie.id}" tag="li" v-for="movie in movieList" :key="movie.id">
+       <router-link :to="{path:'/detail/'+movie.id}" tag="li" v-for="movie in nowPlayingList" :key="movie.id">
            <moviePanel :movie="movie">
                <div class=info>
                    <p class="title">{{movie.name}}</p>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {mapMutations, mapState} from 'vuex'
 import moviePanel from 'common/moviePanel'
 export default {
     name: 'nowPlaying',
@@ -23,18 +23,16 @@ export default {
     },
     data () {
         return {
-            movieList: []
         }
     },
-
+    methods: {
+        ...mapMutations(['nowPlayingGetInfo'])
+    },
+    computed: {
+        ...mapState(['nowPlayingList'])
+    },
     mounted () {
-        axios.get('api/v4/api/film/now-playing?page=1&count=7')
-            .then(res => {
-                if (res.status === 200 && res.data.msg === 'ok') {
-                    this.movieList = res.data.data.films
-                }
-            })
-            .catch(err => { console.log(err) })
+       this.nowPlayingGetInfo()
     }
 
 }

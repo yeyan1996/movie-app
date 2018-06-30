@@ -2,21 +2,21 @@
 <template>
     <div>
 <homeSwiper></homeSwiper>
-<homeMovie></homeMovie>
-<commingSoonMovie></commingSoonMovie>
+<homeNowPlaying></homeNowPlaying>
+<homeCommingSoon></homeCommingSoon>
     </div>
 </template>
 
 <script>
-import homeMovie from 'pages/home/components/homeMovie'
+import homeNowPlaying from 'pages/home/components/homeNowPlaying'
 import homeSwiper from 'pages/home/components/homeSwiper'
-import commingSoonMovie from 'pages/home/components/commingSoonMovie'
+import homeCommingSoon from 'pages/home/components/homeCommingSoon'
 export default {
     name: 'home',
   components:{
       homeSwiper,
-      homeMovie,
-      commingSoonMovie
+    homeNowPlaying,
+      homeCommingSoon
   }
 }
 </script>

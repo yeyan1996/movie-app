@@ -1,6 +1,7 @@
 <template>
     <ul>
-        <router-link :to="{path:'/detail/'+movie.id}" tag="li" v-for="movie in movieList" :key="movie.id">
+        <!--<loading v-if="x"></loading>-->
+        <router-link :to="{path:'/detail/'+movie.id}" tag="li" v-for="movie in movieCommingSoonList" :key="movie.id">
             <moviePanel :movie="movie">
                 <div class=info>
                     <p class="title">{{movie.name}}</p>
@@ -14,16 +15,18 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {mapMutations, mapState} from 'vuex'
+import loading from 'common/loading'
 import moviePanel from 'common/moviePanel'
 export default {
     name: 'movieCommingSoon',
     components: {
-        moviePanel
+        moviePanel,
+        loading
     },
     data () {
         return {
-            movieList: []
+            x: true
         }
     },
     filters: {
@@ -54,14 +57,14 @@ export default {
             return '星期' + day
         }
     },
+    methods: {
+        ...mapMutations(['movieCommingSoonGetInfo'])
+    },
+    computed: {
+        ...mapState(['movieCommingSoonList'])
+    },
     mounted () {
-        axios.get('api/v4/api/film/coming-soon?page=1&count=7')
-            .then(res => {
-                if (res.status === 200 && res.data.msg === 'ok') {
-                    this.movieList = res.data.data.films
-                }
-            })
-            .catch(err => { console.log(err) })
+        this.movieCommingSoonGetInfo()
     }
 }
 </script>

@@ -42,6 +42,7 @@ export default {
           })
           .catch(err => { console.log(err) })
       },
+
       changeApi(){
         this.cityList.forEach(
           (item) => {
@@ -74,9 +75,12 @@ export default {
       }
 
   },
-    mounted () {
+   mounted () {
+      this.$nextTick(()=> {
         // const vm = this
-      this.getInfo()
+        this.getInfo()
+
+      })
     },
     // beforeRouteEnter (to, from, next) {
     //     next(vm => {

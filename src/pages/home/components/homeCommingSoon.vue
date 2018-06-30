@@ -4,7 +4,7 @@
             <div class="commingIcon">即将上映</div>
             <div class="border"></div>
         </div>
-        <router-link  :to="{path:'/detail/'+item.id}" tag="div" v-for="item in commingSoonMovieList" :key="item.id" >
+        <router-link  :to="{path:'/detail/'+item.id}" tag="div" v-for="item in homeCommingSoonList" :key="item.id" >
         <homePanel :item="item">
             <div >{{item.name}}</div>
             <div class="orange">{{item.premiereAt|getDay}}上映</div>
@@ -15,13 +15,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {mapMutations, mapState} from 'vuex'
 import homePanel from 'common/homePanel'
 export default {
     name: 'commingSoonMovie',
     data () {
         return {
-            commingSoonMovieList: []
         }
     },
     filters: {
@@ -38,15 +37,14 @@ export default {
     components: {
         homePanel
     },
+    methods: {
+        ...mapMutations(['homeCommingSoonGetInfo'])
+    },
+    computed: {
+        ...mapState(['homeCommingSoonList'])
+    },
     mounted () {
-        axios.get('api/v4/api/film/coming-soon?__t=1529935023912&page=1&count=3')
-            .then(res => {
-                if (res.status === 200 && res.data.msg === 'ok') {
-                    this.commingSoonMovieList = res.data.data.films
-                    // console.log(this.commingSoonMovieList)
-                }
-            })
-            .catch(err => { console.log(err) })
+        this.homeCommingSoonGetInfo()
     }
 }
 </script>

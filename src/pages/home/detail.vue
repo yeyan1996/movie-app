@@ -1,15 +1,15 @@
 <template>
     <section>
         <transition appear appear-active-class="animated fadeIn">
-        <img :src="this.list.cover.origin" alt="">
+        <img :src="detailList.img" >
         </transition>
         <div class="movieIntro">影片简介</div>
-        <div>导&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span>{{list.director}}</span></div>
-        <div>主&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span v-for="(item,index) in list.actors" :key="index" class="actors">{{item.name}}</span></div>
-        <div>地区语言: <span>{{list.nation}}({{list.language}})</span></div>
-        <div>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型: <span>{{list.category}}</span></div>
-        <div>上映日期: <span>{{list.premiereAt|getDay}}上映</span></div>
-        <div class="intro">{{list.synopsis}}</div>
+        <div>导&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span>{{this.detailList.director}}</span></div>
+        <div>主&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp演: <span v-for="(item,index) in this.detailList.actors" :key="index" class="actors">{{item.name}}</span></div>
+        <div>地区语言: <span>{{this.detailList.nation}}({{this.detailList.language}})</span></div>
+        <div>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型: <span>{{this.detailList.category}}</span></div>
+        <div>上映日期: <span>{{this.detailList.premiereAt|getDay}}上映</span></div>
+        <div class="intro">{{this.detailList.synopsis}}</div>
         <router-link :to="{path:'/cinema'}" class="buyTicket" tag="button">
         立即购票
         </router-link>
@@ -17,14 +17,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {mapMutations, mapState} from 'vuex'
 export default {
     name: 'detail',
     props: ['id'],
     data () {
         return {
-            list: {},
-            movieDate: ''
+            // movieDate: ''
         }
     },
     filters: {
@@ -40,26 +39,23 @@ export default {
             return year + '-' + month + '-' + day
         }
     },
+    computed: {
+        ...mapState(['detailList'])
+    },
     methods: {
-        getInfo () {
-            axios.get('/api/v4/api/film/' + this.id + '?__t=1530258651518')
-                .then(res => {
-                    if (res.status === 200 && res.data.msg === 'ok') {
-                        this.list = res.data.data.film
-                    }
-                }).catch(err => { console.log(err) })
-        },
-        getMovieTime () {
-            const date = new Date(this.list.premiereAt)
-            console.log(date)
-            console.log(this.list.premiereAt)
-            this.movieDate = date.getMonth() + '月' + date.getDate() + '日'
-        }
+        // getMovieTime () {
+        //     const date = new Date(this.detailList.premiereAt)
+        //
+        //     this.movieDate = date.getMonth() + '月' + date.getDate() + '日'
+        // },
+        ...mapMutations([ 'changeTitleName', 'detailGetInfo'])
     },
     mounted () {
-        this.getInfo()
-        this.getMovieTime()
-        console.log(this)
+        this.detailGetInfo({id: this.id})
+        // this.getMovieTime()
+    },
+    beforeDestroy () {
+        this.changeTitleName()
     }
 
 }
