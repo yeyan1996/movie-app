@@ -1,5 +1,9 @@
 import axios from 'axios'
 export default {
+    updateLoadingStatus (state, payload) {
+        state.loading = payload.isLoading
+      console.log( state.loading )
+    },
     showLeftNavbar (state) {
         state.leftNavbarShow = !state.leftNavbarShow
     },
@@ -33,8 +37,8 @@ export default {
                     state.detailList = res.data.data.film
                     // 对象中origin老是报错就把他替换成新的对象了
                     state.detailList.img = state.detailList.cover.origin
-                  //修改标题的名字
-                    state.title=res.data.data.film.name
+                    // 修改标题的名字
+                    state.title = res.data.data.film.name
                 }
             }).catch(err => { console.log(err) })
     },

@@ -58,14 +58,17 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['movieCommingSoonGetInfo'])
+        ...mapMutations(['movieCommingSoonGetInfo', 'updateLoadingStatus'])
     },
     computed: {
         ...mapState(['movieCommingSoonList'])
     },
     mounted () {
         this.movieCommingSoonGetInfo()
-    }
+    },
+    updated () {
+      this.updateLoadingStatus({isLoading: false})
+    },
 }
 </script>
 

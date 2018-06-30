@@ -3,8 +3,8 @@
  <Header></Header>
         <div style="margin-bottom: 1.5rem"></div>
         <leftNavbar></leftNavbar>
-        <loading v-if="loading"></loading>
-        <router-view v-else></router-view>
+        <loading v-if="this.loading"></loading>
+        <router-view ></router-view>
     </div>
 </template>
 
@@ -12,18 +12,22 @@
 import Header from 'common/Header'
 import leftNavbar from 'common/leftNavbar'
 import loading from 'common/loading'
+import {mapState} from 'vuex'
 export default {
     name: 'app',
-    data(){
-      return{
-        loading:true
-      }
+    data () {
+        return {
+        }
     },
     components: {
         Header,
         leftNavbar,
-      loading
-    }
+        loading
+    },
+    computed: {
+        ...mapState(['loading'])
+    },
+
 }
 </script>
 

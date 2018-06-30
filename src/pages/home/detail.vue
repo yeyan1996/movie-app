@@ -48,12 +48,15 @@ export default {
         //
         //     this.movieDate = date.getMonth() + '月' + date.getDate() + '日'
         // },
-        ...mapMutations([ 'changeTitleName', 'detailGetInfo'])
+        ...mapMutations([ 'changeTitleName', 'detailGetInfo','updateLoadingStatus'])
     },
     mounted () {
         this.detailGetInfo({id: this.id})
         // this.getMovieTime()
     },
+  updated () {
+    this.updateLoadingStatus({isLoading: false})
+  },
     beforeDestroy () {
         this.changeTitleName()
     }

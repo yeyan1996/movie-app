@@ -6,5 +6,6 @@ export default{
     homeCommingSoonList: [],
     homeNowPlayingList: [],
     movieCommingSoonList: [],
-    nowPlayingList: []
+    nowPlayingList: [],
+    loading: false
 }

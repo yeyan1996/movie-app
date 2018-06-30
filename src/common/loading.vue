@@ -11,9 +11,11 @@
 
 <style scoped>
     div{
+        position: absolute;
+        z-index:100;
         width:100%;
         background: #0f4580;
-        height:18rem;
+        height:16.25rem;
         display: flex;
         align-items: center;
     }

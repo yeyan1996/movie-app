@@ -38,14 +38,17 @@ export default {
         homePanel
     },
     methods: {
-        ...mapMutations(['homeCommingSoonGetInfo'])
+        ...mapMutations(['homeCommingSoonGetInfo', 'updateLoadingStatus'])
     },
     computed: {
         ...mapState(['homeCommingSoonList'])
     },
     mounted () {
         this.homeCommingSoonGetInfo()
-    }
+    },
+  updated () {
+    this.updateLoadingStatus({isLoading: false})
+  }
 }
 </script>
 
