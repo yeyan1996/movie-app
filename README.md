@@ -35,7 +35,13 @@
 
 # 演示图片
 
-![演示图片](https://github.com/yeyan1996/movieApp/tree/master/static/demo.png)
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo.png)
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo2.png)
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo3.png)
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo4.png)
 
 
 # 项目运行
