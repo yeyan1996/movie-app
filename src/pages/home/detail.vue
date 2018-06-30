@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import {mapActions, mapMutations, mapState} from 'vuex'
 export default {
     name: 'detail',
     props: ['id'],
@@ -48,15 +48,16 @@ export default {
         //
         //     this.movieDate = date.getMonth() + '月' + date.getDate() + '日'
         // },
-        ...mapMutations([ 'changeTitleName', 'detailGetInfo','updateLoadingStatus'])
+        ...mapMutations([ 'changeTitleName','updateLoadingStatus' ]),
+        ...mapActions(['detailGetInfoAsync'])
     },
     mounted () {
-        this.detailGetInfo({id: this.id})
+        this.detailGetInfoAsync({id: this.id})
         // this.getMovieTime()
     },
-  updated () {
+    updated () {
     this.updateLoadingStatus({isLoading: false})
-  },
+    },
     beforeDestroy () {
         this.changeTitleName()
     }

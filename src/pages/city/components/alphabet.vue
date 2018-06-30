@@ -3,32 +3,19 @@
         <div class="container">
             <div class="title">按字母排序</div>
             <ul class="alphabet">
-          <li v-for="(item,key) in list" :key="key">{{key}}</li>
+          <li v-for="(item) in alphabetList" :key="item">{{item}}</li>
             </ul>
         </div>
     </section>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     name: 'alphabet',
-    data () {
-        return {
-            list: this.obj
-        }
-    },
-    props: {
-        obj: {type: Object}
-    },
-    watch: {
-        obj () {
-            this.list = this.obj
-        }
-    },
-    mounted () {
-        console.log('aaaa')
+    computed: {
+        ...mapState(['alphabetList'])
     }
-
 }
 </script>
 

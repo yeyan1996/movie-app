@@ -1,31 +1,30 @@
 <template>
     <section>
-        <div class="container" v-for="(item,key) in x" :key="key">
+        <div class="container" v-for="(item,key) in AllCities" :key="key">
             <div class="title">{{key}}</div>
             <ul class="list" >
-                <li v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</li>
+                <li v-for="innerItem in item" :key="innerItem.id" @click="handleChange(innerItem.name)">{{innerItem.name}}</li>
             </ul>
         </div>
     </section>
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
 export default {
     name: 'list',
-    props: ['obj'],
-    data () {
-        return {
-            x: {}
-        }
+    computed: {
+        ...mapState(['alphabetList', 'AllCities'])
     },
-    watch: {
-        obj (curVal, oldVal) {
-            console.log('d')
+    methods: {
+        handleChange (value) {
+            this.changeCityName({city: value})
+            this.$router.push('/')
         },
-        x () {
-            console.log('x')
-        }
+        ...mapMutations(['changeCityName'])
     }
+
+
 }
 </script>
 

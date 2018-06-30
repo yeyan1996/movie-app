@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import {mapActions,mapMutations, mapState} from 'vuex'
 import loading from 'common/loading'
 import moviePanel from 'common/moviePanel'
 export default {
@@ -58,13 +58,14 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['movieCommingSoonGetInfo', 'updateLoadingStatus'])
+        ...mapActions(['movieCommingSoonGetInfoAsync']),
+      ...mapMutations(['updateLoadingStatus'])
     },
     computed: {
         ...mapState(['movieCommingSoonList'])
     },
     mounted () {
-        this.movieCommingSoonGetInfo()
+        this.movieCommingSoonGetInfoAsync()
     },
     updated () {
       this.updateLoadingStatus({isLoading: false})

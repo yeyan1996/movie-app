@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import home from '@/pages/home/home'
 import city from '@/pages/city/city'
 import movie from '@/pages/movie/movie'
-import nowPlaying from '@/pages/movie/components/nowPlaying'
+import movieNowPlaying from '@/pages/movie/components/movieNowPlaying'
 import detail from '@/pages/home/detail'
 import movieCommingSoon from '@/pages/movie/components/movieCommingSoon'
 import cinema from '@/pages/cinema/cinema'
@@ -34,9 +34,9 @@ const router = new Router({
             component: movie,
             children: [
                 {
-                    path: 'nowPlaying',
-                    name: 'nowPlaying',
-                    component: nowPlaying
+                    path: 'movieNowPlaying',
+                    name: 'movieNowPlaying',
+                    component: movieNowPlaying
                 },
                 {
                     path: 'movieCommingSoon',
@@ -63,10 +63,5 @@ router.beforeEach(function (to, from, next) {
     next()
 })
 
-// // 路由跳转后的钩子
-// router.beforeResolve(function (to,from,next) {
-//     console.log('.beforeResolve')
-//     store.commit('updateLoadingStatus', {isLoading: false})
-//   next()
-// })
+
 export default router

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import {mapActions,mapMutations, mapState} from 'vuex'
 import homePanel from 'common/homePanel'
 export default {
     name: 'commingSoonMovie',
@@ -38,13 +38,14 @@ export default {
         homePanel
     },
     methods: {
-        ...mapMutations(['homeCommingSoonGetInfo', 'updateLoadingStatus'])
+        ...mapActions(['homeCommingSoonGetInfoAsync']),
+      ...mapMutations(['updateLoadingStatus'])
     },
     computed: {
         ...mapState(['homeCommingSoonList'])
     },
     mounted () {
-        this.homeCommingSoonGetInfo()
+        this.homeCommingSoonGetInfoAsync()
     },
   updated () {
     this.updateLoadingStatus({isLoading: false})

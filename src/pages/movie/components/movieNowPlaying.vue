@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import {mapActions,mapMutations, mapState} from 'vuex'
 import moviePanel from 'common/moviePanel'
 export default {
-    name: 'nowPlaying',
+    name: 'movieNowPlaying',
     components: {
         moviePanel
     },
@@ -26,13 +26,14 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['nowPlayingGetInfo','updateLoadingStatus'])
+        ...mapActions(['nowPlayingGetInfoAsync']),
+      ...mapMutations(['updateLoadingStatus'])
     },
     computed: {
         ...mapState(['nowPlayingList'])
     },
     mounted () {
-        this.nowPlayingGetInfo()
+        this.nowPlayingGetInfoAsync()
     },
     updated () {
         this.updateLoadingStatus({isLoading: false})

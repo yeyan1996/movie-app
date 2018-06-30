@@ -12,7 +12,7 @@
 <style scoped>
     div{
         position: absolute;
-        z-index:100;
+        z-index:10;
         width:100%;
         background: #0f4580;
         height:16.25rem;

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import {mapActions,mapMutations, mapState} from 'vuex'
 import homePanel from 'common/homePanel'
 export default {
     name: 'homeMovie',
@@ -26,13 +26,14 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(['homeNowPlayingGetInfo', 'updateLoadingStatus'])
+        ...mapActions(['homeNowPlayingGetInfoAsync']),
+      ...mapMutations(['updateLoadingStatus'])
     },
     computed: {
         ...mapState(['homeNowPlayingList'])
     },
     mounted () {
-        this.homeNowPlayingGetInfo()
+        this.homeNowPlayingGetInfoAsync()
     },
   updated () {
     this.updateLoadingStatus({isLoading: false})

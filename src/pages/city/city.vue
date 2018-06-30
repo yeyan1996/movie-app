@@ -3,8 +3,8 @@
     <div>
     <GPS></GPS>
     <hotCity></hotCity>
-    <alphabet :obj="obj"></alphabet>
-        <list  :obj="obj"></list>
+    <alphabet ></alphabet>
+        <list ></list>
     </div>
 </template>
 
@@ -14,16 +14,9 @@ import hotCity from 'pages/city/components/hotCity'
 import alphabet from 'pages/city/components/alphabet'
 import list from 'pages/city/components/list'
 import axios from 'axios'
+import {mapActions,mapMutations} from 'vuex'
 export default {
     name: 'city',
-    data () {
-        return {
-            cityList: [],
-          alphabetList: [],
-          q:[],
-          obj:{}
-        }
-    },
     components: {
         GPS,
         hotCity,
@@ -31,62 +24,25 @@ export default {
         list
     },
   methods:{
-      getInfo(){
-        axios.get('/api/v4/api/city?__t=1530066943888')
-          .then(res => {
-            if (res.status === 200 && res.data.msg === 'ok') {
-              this.cityList = res.data.data.cities
-              // console.log(vm.cityList)
-              this.changeApi()
-            }
-          })
-          .catch(err => { console.log(err) })
-      },
-
-      changeApi(){
-        this.cityList.forEach(
-          (item) => {
-            let x = item.pinyin.slice(0, 1)
-            if (this.alphabetList.indexOf(x) < 0) {
-              this.alphabetList.push(x)
-            }
-          }
-        )
-        this.alphabetList.sort()
-
-
-
-        for(let i of this.alphabetList){
-          let x=this.cityList.filter(
-            (item)=>{
-              return item.pinyin.slice(0,1)===i
-            }
-          )
-          // console.log(x)
-          this.q.push(x)
-
-          // console.log(i)
-        }
-
-        for(let i in this.alphabetList) {
-          let key=this.alphabetList[i]
-          this.obj[key] = this.q[i]
-        }
-      }
+    ...mapActions(['getCityInfoAsync']),
+    ...mapMutations(['updateLoadingStatus'])
 
   },
    mounted () {
-      this.$nextTick(()=> {
-        // const vm = this
-        this.getInfo()
+        this.getCityInfoAsync()
+      },
 
-      })
-    },
-    // beforeRouteEnter (to, from, next) {
-    //     next(vm => {
-    //
-    //     })
-    // }
+
+  /**
+   *有个BUG:一般的updated生命周期函数在这个组件无法使用，所以我换到了vuex中切换loading的状态
+   */
+  // updated(){
+  //  this.updateLoadingStatus({loading:false})
+  //
+  // }
+
+
+
 }
 </script>
 
