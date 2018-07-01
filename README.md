@@ -8,7 +8,7 @@
 
 ### 插件
 
->vue-awesome-swiper:vue上的swiper轮播插件
+>vue-awesome-swiper：vue上的swiper轮播插件
 
 >better-scroll：vue上的iscroll滚动插件
 
