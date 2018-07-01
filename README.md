@@ -4,11 +4,11 @@
 > 仓库地址：https://github.com/yeyan1996/movieApp ✨✨求你的小星星～
 
 # 技术栈
-> vue2.5 + vuex + webpack4 + vue-router + sass + axios
+> vue2.5 + vuex + webpack4 + vue-router + scss + axios
 
 ### 插件
 
->vue-awesome-swiper:vue上的swiper轮播插件
+>vue-awesome-swiper：vue上的swiper轮播插件
 
 >better-scroll：vue上的iscroll滚动插件
 
@@ -32,6 +32,16 @@
 > better-scroll:https://github.com/ustbhuangyi/better-scroll
 
 >项目参考：https://github.com/ChuckCZC/vue-demo-maizuo
+
+# 演示图片
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo.png)
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo2.png)
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo3.png)
+
+![演示图片](https://github.com/yeyan1996/movieApp/blob/master/static/demo4.png)
 
 
 # 项目运行
