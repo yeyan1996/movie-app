@@ -4,7 +4,7 @@
 > 仓库地址：https://github.com/yeyan1996/movieApp ✨✨求你的小星星～
 
 # 技术栈
-> vue2.5 + vuex + webpack4 + vue-router + sass + axios
+> vue2.5 + vuex + webpack4 + vue-router + scss + axios
 
 ### 插件
 
