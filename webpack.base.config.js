@@ -50,6 +50,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.json', '.scss'],
         alias: {
+            // 在基础配置也加了下面这句话，否则打包后没有dom节点
+            vue$: 'vue/dist/vue.esm.js',
             '@': path.resolve(__dirname, 'src/'),
             'pages': path.resolve(__dirname, 'src/pages/'),
             'common': path.resolve(__dirname, 'src/common/')

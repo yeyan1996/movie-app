@@ -14,12 +14,12 @@ module.exports = merge(webpackBaseConfig, {
         inline: true,
         proxy: {
             '/api': {
-                target: 'https://m.maizuo.com',
-                pathRewrite: {
-                    '^/api': ''
-                },
-                changeOrigin: true,
-                secure: false
+                target: 'https://m.maizuo.com/v4',
+                // pathRewrite: {
+                //     '^/api': ''
+                // },
+                changeOrigin: true, // 允许跨域
+                secure: false // 支持https协议
 
             }
         }
