@@ -5,7 +5,9 @@
 
 ### 项目演示（只有界面，生产环境存在跨域的BUG，axios拿不到数据，正在想办法修复中...）
 
-[项目演示](https://yeyan1996.github.io/movieApp/dist/index#/)
+>使用chrome浏览器切换到移动端页面
+
+[预览地址](https://yeyan1996.github.io/movieApp/dist/index#/)
 
 # 技术栈
 > vue2.5 + vuex + webpack4 + vue-router + scss + axios
