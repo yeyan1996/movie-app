@@ -3,6 +3,10 @@
 
 > 仓库地址：https://github.com/yeyan1996/movieApp ✨✨求你的小星星～
 
+# 项目演示（只有界面，生产环境存在跨域的BUG正在想办法修复中...）
+
+[项目演示]()
+
 # 技术栈
 > vue2.5 + vuex + webpack4 + vue-router + scss + axios
 
