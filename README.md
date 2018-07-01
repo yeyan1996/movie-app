@@ -3,14 +3,14 @@
 
 > 仓库地址：https://github.com/yeyan1996/movieApp ✨✨求你的小星星～
 
-### 项目演示（生产环境存在跨域的BUG，axios拿不到数据，正在想办法修复中...）
+### 项目演示（生产环境存在跨域的问题，axios拿不到数据，正在想办法修复中...）
 
 >使用chrome浏览器切换到移动端页面
 
 [预览地址](https://yeyan1996.github.io/movieApp/dist/index#/)
 
 # 技术栈
-> vue2.5 + vuex + webpack4 + vue-router + scss + axios
+> vue2.5 + vuex + vue-router + webpack4 + scss + axios
 
 ### 插件
 
