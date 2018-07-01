@@ -3,7 +3,7 @@
 
 > 仓库地址：https://github.com/yeyan1996/movieApp ✨✨求你的小星星～
 
-# 项目演示（只有界面，生产环境存在跨域的BUG正在想办法修复中...）
+### 项目演示（只有界面，生产环境存在跨域的BUG，axios拿不到数据，正在想办法修复中...）
 
 [项目演示](https://github.com/yeyan1996/movieApp/blob/master/dist/index.html)
 
