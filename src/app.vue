@@ -4,7 +4,9 @@
         <div style="margin-bottom: 1.5rem"></div>
         <leftNavbar></leftNavbar>
         <loading v-if="this.loading"></loading>
+<keep-alive>
         <router-view ></router-view>
+</keep-alive>
     </div>
 </template>
 
@@ -26,7 +28,7 @@ export default {
     },
     computed: {
         ...mapState(['loading'])
-    },
+    }
 
 }
 </script>

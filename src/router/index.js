@@ -24,9 +24,9 @@ const router = new Router({
         },
         {
             path: '/detail/:id',
+            name: 'detail',
             props: true,
             component: detail
-
         },
         {
             path: '/movie',
@@ -57,11 +57,9 @@ const router = new Router({
     }
 })
 
-router.beforeEach(function (to, from, next) {
-    console.log('beforeEach')
-    store.commit('updateLoadingStatus', {isLoading: true})
-    next()
-})
-
-
+// router.beforeEach(function (to, from, next) {
+//     console.log('beforeEach')
+//     store.commit('updateLoadingStatus', {isLoading: true})
+//     next()
+// })
 export default router

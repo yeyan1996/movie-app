@@ -51,14 +51,15 @@ export default {
         ...mapMutations([ 'changeTitleName','updateLoadingStatus' ]),
         ...mapActions(['detailGetInfoAsync'])
     },
-    mounted () {
+    activated () {
+      this.updateLoadingStatus({isLoading: true})
         this.detailGetInfoAsync({id: this.id})
         // this.getMovieTime()
     },
-    updated () {
-    this.updateLoadingStatus({isLoading: false})
-    },
-    beforeDestroy () {
+    // updated () {
+    // this.updateLoadingStatus({isLoading: false})
+    // },
+    deactivated () {
         this.changeTitleName({title:'卖座电影'})
     }
 

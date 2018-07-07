@@ -1,7 +1,9 @@
 <template>
     <section>
     <movieHeader></movieHeader>
+        <keep-alive>
       <router-view></router-view>
+        </keep-alive>
     </section>
 </template>
 

@@ -5,7 +5,7 @@
             <!--GPS定位-->
             <div class="GPS">
                 <div class="title">GPS定位你所在的城市</div>
-                <div class="city">上海</div>
+                <div class="city" @click="changeGPSCity">上海</div>
             </div>
                    <!--热门城市-->
             <div class="hotCity">
@@ -54,6 +54,10 @@
       ...mapState(['alphabetList', 'AllCities'])
     },
     methods: {
+      changeGPSCity(e){
+        this.changeCityName({city: e.target.innerHTML})
+        this.$router.push('/')
+      },
       changeHotCity(e){
         this.changeCityName({city: e.target.innerHTML})
         this.$router.push('/')
@@ -78,6 +82,7 @@
       }
     },
     mounted () {
+      this.updateLoadingStatus({isLoading: true})
       this.scroll = new BScroll(this.$refs.list, {
         // better-scroll 默认会阻止浏览器的原生 click 事件。当设置为 true，better-scroll 会派发一个 click 事件
         click: true
@@ -85,18 +90,10 @@
       this.getCityInfoAsync()
       this.changeTitleName({title: '选择城市'})
     },
-    beforeDestroy () {
+    deactivated () {
       this.changeTitleName({title: '卖座电影'})
     }
 
-
-    /**
-     *有个BUG:一般的updated生命周期函数在这个组件无法使用，所以我换到了vuex中切换loading的状态
-     */
-    // updated(){
-    //  this.updateLoadingStatus({loading:false})
-    //
-    // }
 
   }
 </script>

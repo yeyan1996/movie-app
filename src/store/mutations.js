@@ -7,7 +7,7 @@ export default {
     showLeftNavbar (state) {
         state.leftNavbarShow = !state.leftNavbarShow
     },
-    changeTitleName (state,payload) {
+    changeTitleName (state, payload) {
         state.title = payload.title
     },
 
@@ -24,9 +24,6 @@ export default {
             }
         )
         state.alphabetList.sort()
-        /**
-       * 修改Api接口，把城市首字母和城市信息组合成对象，存在刷新后无法完整显示的BUG
-       */
         const cityWithoutAlphabet = []
         for (let i of state.alphabetList) {
             let x = payload.data.cities.filter(
@@ -40,11 +37,7 @@ export default {
             let key = state.alphabetList[i]
             state.AllCities[key] = cityWithoutAlphabet[i]
         }
-
-      /**
-       *有个BUG:一般的updated生命周期函数在这个组件无法使用，所以我换到了vuex中切换loading的状态
-       */
-     state.loading = false
+        state.loading = false
     },
 
     changeCityName (state, payload) {
@@ -54,10 +47,13 @@ export default {
 
     homeCommingSoonGetInfo (state, payload) {
         state.homeCommingSoonList = payload.data.films
+        state.loading = false
     },
 
     homeNowPlayingGetInfo (state, payload) {
         state.homeNowPlayingList = payload.data.films
+      state.loading = false
+
     },
 
     detailGetInfo (state, payload) {
@@ -66,13 +62,18 @@ export default {
         state.detailList.img = state.detailList.cover.origin
         // 修改标题的名字
         state.title = payload.data.film.name
+      state.loading = false
+
     },
 
     movieCommingSoonGetInfo (state, payload) {
         state.movieCommingSoonList = payload.data.films
+      state.loading = false
+
     },
 
     nowPlayingGetInfo (state, payload) {
         state.nowPlayingList = payload.data.films
+      state.loading = false
     }
 }

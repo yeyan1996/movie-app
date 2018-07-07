@@ -27,17 +27,18 @@ export default {
     },
     methods: {
         ...mapActions(['nowPlayingGetInfoAsync']),
-      ...mapMutations(['updateLoadingStatus'])
+      ...mapMutations(['updateLoadingStatus','updateLoadingStatus'])
     },
     computed: {
         ...mapState(['nowPlayingList'])
     },
     mounted () {
+      this.updateLoadingStatus({isLoading: true})
         this.nowPlayingGetInfoAsync()
     },
-    updated () {
-        this.updateLoadingStatus({isLoading: false})
-    }
+    // updated () {
+    //     this.updateLoadingStatus({isLoading: false})
+    // }
 
 }
 </script>

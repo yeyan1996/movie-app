@@ -39,16 +39,17 @@ export default {
     },
     methods: {
         ...mapActions(['homeCommingSoonGetInfoAsync']),
-      ...mapMutations(['updateLoadingStatus'])
+      ...mapMutations(['updateLoadingStatus', 'updateLoadingStatus'])
     },
     computed: {
         ...mapState(['homeCommingSoonList'])
     },
     mounted () {
+      this.updateLoadingStatus({isLoading: true})
         this.homeCommingSoonGetInfoAsync()
     },
   updated () {
-    this.updateLoadingStatus({isLoading: false})
+    // this.updateLoadingStatus({isLoading: false})
   }
 }
 </script>

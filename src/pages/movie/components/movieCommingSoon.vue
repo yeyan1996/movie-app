@@ -59,17 +59,18 @@ export default {
     },
     methods: {
         ...mapActions(['movieCommingSoonGetInfoAsync']),
-      ...mapMutations(['updateLoadingStatus'])
+      ...mapMutations(['updateLoadingStatus','updateLoadingStatus'])
     },
     computed: {
         ...mapState(['movieCommingSoonList'])
     },
     mounted () {
+      this.updateLoadingStatus({isLoading: true})
         this.movieCommingSoonGetInfoAsync()
     },
-    updated () {
-      this.updateLoadingStatus({isLoading: false})
-    },
+    // updated () {
+    //   this.updateLoadingStatus({isLoading: false})
+    // },
 }
 </script>
 
