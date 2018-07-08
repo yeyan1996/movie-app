@@ -6,6 +6,7 @@ export default {
         axios.get(url + 'city?__t=1530066943888')
             .then(res => {
                 if (res.status === 200 && res.data.msg === 'ok') {
+                  console.log(ctx)
                     ctx.commit('getCityInfo', res.data)
                 }
             })
